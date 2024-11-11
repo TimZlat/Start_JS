@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Знакомство с JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>Старт в Java Script</h1> 
+		<nav class="main-menu">
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="page2.html">Блок-схема 1</a></li>
+                <li><a href="page3.html">Дневник Белки и Стрелки</a></li>
+				<!-- <li><a href="page4.html">Задание 4</a></li> -->
+            </ul>
+        </nav> 
+    </header>
+
+    <div class="main">
+        <div class="entry-wrapper">
+            
+            <div class="entry">
+                <h1>Привет, JavaScript!</h1>
+				<p>Мы <em>знакомимся</em> <strong>с языком Java Script</strong>.</p>
+				<p><strong><em>Здесь работает наш первый скрипт!!!</em></strong>.</p>
+				<script>
+					 //var options = {
+					//	era: 'long',
+					//	year: 'numeric',
+					//	month: 'long',
+					//	day: 'numeric',
+					//	weekday: 'long',
+					//	timezone: 'UTC',
+					//	hour: 'numeric',
+					//	minute: 'numeric',
+					//	second: 'numeric'
+					//	}; 
+					let formatter1 = new Intl.DateTimeFormat("ru",
+					{weekday: "long",
+						year: "numeric",
+						month: "long",
+						day: "numeric"
+					});	
+					Now = new Date();
+					let date = new Date("2025-06-01");
+					document.write("<p> Сегодня <em>" + Now.getDate()+ 
+					"-" + (Now.getMonth()+1) + "-" + Now.getFullYear() + ".</em> </p>");
+					document.write("<p> Или "+ formatter1.format(Now)+"</p>");
+					document.write("<p>Вы зашли на Web-страницу ровно в: " + Now.getHours() + 
+					":" + Now.getMinutes() + ":" + Now.getSeconds()+"</p>");
+					
+					console.log(formatter1.format(Now));
+					let diff = date.getTime()-Now.getTime();
+					// конвертируем разницу в дни
+					// секунды = миллисекунды / 1000
+					// минуты = секунды / 60
+					// часы = минуты / 60
+					// Дни = часы / 24
+					let days = Math.round(diff/(1000*60*60*24));
+					console.log(days);
+					if(days>0)
+					{
+						document.write("<br><strong>До лета осталось: "+days+" дней</strong>");
+					}
+					else
+					{
+						document.write("<br><strong>Лето началось "+days+" дней назад</strong>");
+					}
+									
+				</script>
+                
+            </div>
+			<div class="entry">
+                <h3 class="first">Проект "Генератор случайных дразнилок"</h3>
+				<script>
+					var randomBodyParts = ["глаз", "нос", "череп"];
+					var randomAdjectives = ["колючая", "унылая", "дурацкая"];
+					var randomWords = ["муха", "выдра", "дубина", "мартышка", "крыса","собака"];
+					// Выбор случайной части тела из массива randomBodyParts:
+					var randomBodyPart = randomBodyParts[Math.floor(Math.random() * 3)];
+					// Выбор случайного прилагательного из массива randomAdjectives:
+					var randomAdjective = randomAdjectives[Math.floor(Math.random() * 3)];
+					// Выбор случайного слова из массива randomWords:
+					var randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
+					// Соединяем случайные строки в предложение:
+					var randomInsult = "У тебя " + randomBodyPart + " словно " + 
+					randomAdjective + " " + randomWord + "!!!";
+					document.write("<br>"+randomInsult);
+				</script>
+            </div>
+	    </div>  
+    </div>
+
+	<div class="footer">
+		<a class="footer-email" href="mailto:akhmerova@mgkeit.pro">akhmerova@mgkeit.pro</a>
+		<a class="footer-phone" href="tel:+7 123 456 7890">+7 123 456 7890 </a>
+	
+	</div>
+</body>
+
+</html>
